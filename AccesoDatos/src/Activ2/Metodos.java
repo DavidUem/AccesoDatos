@@ -31,9 +31,42 @@ public boolean renombraFichero(String viejo, String nuevo){
 	}
 	return false;
 }
-
-
-
-
-
+public String contenidoDirectorio(String ruta){
+	File f= new File("src");
+	String[] archivos = f.list();
+	for (int i=0; i< archivos.length;i++){
+		System.out.println(archivos[i]);
+	}
+	return null;
 }
+
+public String[] datosFicheros(String Fichero){
+	File f= new File("\\Users");
+	File p = new File("\\Users\\ReadMe.txt");
+	String[] resultado = new String[5];
+	
+	
+	if (f.exists()){
+		resultado[0]= f.getName();
+		System.out.println("Ruta Absoluta: " + f.getAbsolutePath());
+		resultado[2] = String.valueOf(f.canRead());
+		System.out.println("Permisos de escritura: " + f.canWrite());
+		System.out.println("Tamano en bytes " + f.length());
+		System.out.println("Si es directorio: " + f.isDirectory());
+		System.out.println("Directorio Padre: " + p.isDirectory());
+		
+		String[] datos={f.getName(),f.getAbsolutePath()};
+		
+	}
+	
+	else {
+		System.out.println("Directorio no existe");
+	}
+	
+	return resultado;
+
+	}
+}
+
+
+
